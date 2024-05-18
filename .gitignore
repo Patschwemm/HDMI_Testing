@@ -1,0 +1,8 @@
+# Git Ignore
+
+# Visual studio files
+.vs/
+
+# Exclude lib and build output
+lib/
+out/
