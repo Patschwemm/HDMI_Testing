@@ -6,13 +6,15 @@ void init_lvgl_windows(void)
 {
     lv_init();
 
-    int32_t zoom_level = 100;
     bool allow_dpi_override = false;
     bool simulator_mode = false;
+    const int DISPLAY_HOR = 1280;
+    const int DISPLAY_VER = 720;
+    int zoom_level = 100;
     lv_display_t* display = lv_windows_create_display(
         L"LVGL Display Window",
-        800,
-        480,
+        DISPLAY_HOR,
+        DISPLAY_VER,
         zoom_level,
         allow_dpi_override,
         simulator_mode);
@@ -49,9 +51,5 @@ void init_lvgl_windows(void)
         return;
     }
 
-    // Create the main screen
-    lv_obj_t* main_screen = lv_win_create(lv_scr_act());
-    lv_scr_load(main_screen);
 
-    createButton();
 }

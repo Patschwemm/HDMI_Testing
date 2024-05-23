@@ -1,14 +1,16 @@
 ﻿// HDMI.cpp : Defines the entry point for the application.
 #include <lvgl.h>
-#include <Windows.h>
 #include <iostream>
 #include <render.hpp>
 #include <init.hpp>
+#include <menus/main_menu.hpp>
+
 
 int main()
 {
     init_lvgl_windows();
-    createButton();
+    main_menu();
+
 
     // Main loop to handle LVGL tasks
     while (1)

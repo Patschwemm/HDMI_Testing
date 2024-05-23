@@ -4,6 +4,8 @@
 #include <iostream>
 
 
+
+
 /**
  * Create a button with a label and react on click event.
  */
@@ -16,6 +18,6 @@ void createButton(void)
     lv_obj_set_size(btn, 120, 50);                          /*Set its size*/
 
     lv_obj_t* label = lv_label_create(btn);          /*Add a label to the button*/
-    lv_label_set_text(label, "Button");                     /*Set the labels text*/
+    lv_label_set_text(label, "Settings");                     /*Set the labels text*/
     lv_obj_center(label);
 }

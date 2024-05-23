@@ -4,7 +4,11 @@
 #pragma once
 // TODO: Reference additional headers your program requires here.
 #include "HDMI.h"
-#include "lvgl.h"
-#include "render.h"
+#include <lvgl.h>
+#include <iostream>
+#include <render.hpp>
+#include <init.hpp>
+#include <menus/main_menu.hpp>
+#
 
 int main();
