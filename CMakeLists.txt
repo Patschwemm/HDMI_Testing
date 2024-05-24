@@ -13,13 +13,9 @@ include(FetchContent)
 project ("HDMI")
 
 # Add source and include directories
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/menus/*.cpp")
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/*.cpp")
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/menus/*.hpp")
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/widgets/*.hpp")
+file(GLOB_RECURSE SOURCES_MAIN "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE HEADERS_MAINPP "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
+file(GLOB_RECURSE HEADERS_MAIN "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
 
 # FOR LVGL: Specify path to own LVGL config header
 set(LV_CONF_PATH
@@ -34,7 +30,7 @@ FetchContent_Declare(lvgl GIT_REPOSITORY https://github.com/lvgl/lvgl.git)
 FetchContent_MakeAvailable(lvgl)
 
 # Add source to this project's executable.
-add_executable (HDMI_test "HDMI.cpp" "HDMI.h" ${SOURCES} ${HEADERS})
+add_executable (HDMI_test "HDMI.cpp" "HDMI.h" ${SOURCES_MAIN} ${HEADERS_MAIN} ${HEADERS_MAIN})
 
 # The target depends on LVGL
 target_link_libraries(HDMI_test PRIVATE SDL2::SDL2 SDL2::SDL2main)

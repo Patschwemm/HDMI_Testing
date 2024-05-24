@@ -5,6 +5,7 @@
 void init_lvgl_windows(void)
 {
     lv_init();
+    lv_fs_drv_init;
 
     bool allow_dpi_override = false;
     bool simulator_mode = false;
