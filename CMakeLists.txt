@@ -10,7 +10,7 @@ include(FetchContent)
 #   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 #endif()
 
-project ("HDMI")
+project ("HDMI" CXX C)
 
 # Add source and include directories
 file(GLOB_RECURSE SOURCES_MAIN "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
@@ -22,18 +22,16 @@ set(LV_CONF_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/include/lv_conf.h
     CACHE STRING "" FORCE)
 
-# Add LVGL from lib folder
-add_subdirectory(lib/SDL2)
-
 # Fetch LVGL from GitHub
 FetchContent_Declare(lvgl GIT_REPOSITORY https://github.com/lvgl/lvgl.git)
+
+# Make other dependencies available
 FetchContent_MakeAvailable(lvgl)
 
 # Add source to this project's executable.
 add_executable (HDMI_test "HDMI.cpp" "HDMI.h" ${SOURCES_MAIN} ${HEADERS_MAIN} ${HEADERS_MAIN})
 
 # The target depends on LVGL
-target_link_libraries(HDMI_test PRIVATE SDL2::SDL2 SDL2::SDL2main)
 target_link_libraries(HDMI_test PRIVATE lvgl::lvgl lvgl::examples lvgl::demos)
 
 

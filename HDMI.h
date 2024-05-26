@@ -9,6 +9,5 @@
 #include <render.hpp>
 #include <init.hpp>
 #include <menus/main_menu.hpp>
-#
 
 int main();

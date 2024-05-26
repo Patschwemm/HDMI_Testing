@@ -1,10 +1,6 @@
 #include <lvgl.h>
-#include <SDL.h>
 #include <Windows.h>
 #include <iostream>
-
-
-
 
 /**
  * Create a button with a label and react on click event.
